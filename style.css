@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -89,20 +91,32 @@ header h1 {
   cursor: pointer;
 }
 
-.search button img {
+.search button svg {
   width: 20px;
   margin-right: .6rem;
+  fill: #fff ;
 }
 
 .search button:hover {
-  filter: brightness(1.1)
+  background-color: var(--text-color);
+  color: var(--primary-color);
+}
+
+.search button:hover svg{
+  fill: #065E7C !important;
+}
+
+.table-wrapper {
+  margin-top: 60px;
+  border: 1px solid #4A808C;
+  max-height: 580px;
+  overflow: scroll;
+  border-radius: 1.2rem;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-
-  box-shadow: 0 1rem 2rem -1rem rgba(0, 0, 0, 0.3);
 }
 
 table * {
@@ -111,26 +125,33 @@ table * {
 }
 
 table th {
-  background: var(--seconday-color);
+  background: var(--dark-green);
   text-align: left;
   font-weight: normal;
-  padding: 1.5rem;
+  padding: 2.2rem;
+  
 }
 
 table th:first-child {
-  border-top-left-radius: .4rem;
+  border-top-left-radius: 1.2rem;
 }
 
 table th:last-child {
-  border-top-right-radius: .4rem;
+  border-top-right-radius: 1.2rem;
+}
+
+table tr {
+  border-bottom: 1px solid #4A808C;
+  padding: 2.2rem;
 }
 
 table tr:nth-child(even) {
-  background: #eee;
+  background: rgba(6, 22, 27, 50%);
+  
 }
 
 table tr:nth-child(odd) {
-  background: #ddd;
+  background: #06181C;
 }
 
 table td {
@@ -167,4 +188,27 @@ td .remove {
 
   color: red;
   cursor: pointer;
+}
+
+.no-favs {
+  display: flex;
+  background: rgba(6, 22, 27, 50%);
+  align-items: center;
+  justify-content: center;
+  color:#4E5455;
+  height: 400px;
+}
+
+.hide {
+  display: none !important;
+}
+
+.no-favs h3{
+  font-family: "Roboto Mono", monospace;
+  margin-left: 2rem;
+  font-size: 4rem;
+}
+
+.no-favs img {
+  width:120px;
 }
