@@ -46,8 +46,13 @@ export class GithubUser {
 ### favourites.js
 
 This file contains two classes: Favorites and FavoritesView.
-Favorites class manages the user's favorites list including loading, saving, adding, and deleting users.
+Favorites class manages the user's favorites list including loading, saving, adding, and deleting users. 
+It utilizes localStorage to store user data locally within the browser. The load method retrieves user data from localStorage, initializing an empty array if no data is found. The save method stores user data back to localStorage whenever there are changes.
+
+This project leverages localStorage to provide persistent storage for the user's favorites list, ensuring that the data is retained even if the user refreshes the page or closes the browser.
+
 FavoritesView extends Favorites and handles the rendering of the favorites list in the HTML document, including adding event listeners for user interactions.
+
 
 ```javascript
 import { GithubUser } from "./githubUser.js"
