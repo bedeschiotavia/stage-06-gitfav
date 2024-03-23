@@ -35,7 +35,6 @@ export class Favorites {
       this.entries = [user, ...this.entries]
       this.update()
       this.save()
-      this.removeMessageNoFav()
 
     } catch(error) {
       alert(error.message)
@@ -50,7 +49,6 @@ export class Favorites {
     this.entries = filteredEntries
     this.update()
     this.save()
-    this.removeMessageNoFav()
   }
 }
 
@@ -70,7 +68,11 @@ export class FavoritesView extends Favorites {
     addButton.onclick = () => {
       const { value } = this.root.querySelector('.search input')
       this.add(value)
+
+      const searchInput = document.getElementById('input-search')
+      searchInput.value=""
     }
+    
   }
 
   update(){
@@ -98,6 +100,7 @@ export class FavoritesView extends Favorites {
       this.tbody.append(row)
     })
 
+    this.checkMessageNoFav()
   }
 
   createRow() {
@@ -133,8 +136,13 @@ export class FavoritesView extends Favorites {
       })
   }
 
-  removeMessageNoFav() {
-    document.getElementById('no-fav-section').classList.toggle('hide')
+  checkMessageNoFav() {
+    const entrieSize = this.entries.length
+    if (entrieSize !== 0){
+      this.root.querySelector('#no-fav-section').classList.add('hide')
+    } else {
+      this.root.querySelector('#no-fav-section').classList.remove('hide')
+    }
   }
   
 }
